@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-syne: 'Syne', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+.font-syne {
+  font-family: var(--font-syne);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Custom Cyberpunk & Terminal Utilities */
+.neon-glow-green {
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.6), 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.neon-glow-purple {
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.6), 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.neon-glow-orange {
+  text-shadow: 0 0 10px rgba(249, 115, 22, 0.6), 0 0 20px rgba(249, 115, 22, 0.3);
+}
+
+.box-glow-green {
+  box-shadow: 0 0 25px -5px rgba(0, 255, 136, 0.35);
+}
+
+.box-glow-purple {
+  box-shadow: 0 0 25px -5px rgba(124, 58, 237, 0.4);
+}
+
+.box-glow-orange {
+  box-shadow: 0 0 25px -5px rgba(249, 115, 22, 0.35);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(16, 16, 22, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 22, 32, 0.88);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* CRT Scanlines Overlay */
+.crt-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.04),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.04)
+  );
+  background-size: 100% 3px, 4px 100%;
+  pointer-events: none;
+}
+
+/* Subtle Radar Grid */
+.radar-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff88;
+}
+
+/* Glitch Text Keyframes */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+.animate-glitch {
+  animation: glitch 0.25s infinite;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 24s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Print Optimization for ATS Resume */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Hide all app chrome, teleporter, modals, and extraneous windows */
+  header, 
+  nav, 
+  .print\:hidden,
+  .radar-grid,
+  .crt-overlay {
+    display: none !important;
+  }
+
+  /* Force clean resume container to display cleanly */
+  #ats-resume-document {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  @page {
+    margin: 1.5cm;
+    size: A4 portrait;
+  }
+}
