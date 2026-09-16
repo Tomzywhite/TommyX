@@ -7,7 +7,8 @@ import TommyOS from './components/os/TommyOS';
 import TheZine from './components/zine/TheZine';
 import TheTerminal from './components/terminal/TheTerminal';
 import TheVoid from './components/void/TheVoid';
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -55,6 +56,8 @@ export default function App() {
           />
         </>
       )}
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
