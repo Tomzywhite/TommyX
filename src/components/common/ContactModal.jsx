@@ -38,24 +38,16 @@ export default function ContactModal({ isOpen, onClose }) {
   const [deliveryMethod, setDeliveryMethod] = useState(''); // 'web3forms' | 'formspree' | 'mailto'
   const [errorMessage, setErrorMessage] = useState('');
   const [showConfigDrawer, setShowConfigDrawer] = useState(false);
-  const [localKey, setLocalKey] = useState('');
+  const [localKey, setLocalKey] = useState(() => {
+    return typeof window !== 'undefined' ? (localStorage.getItem('tommy_web3forms_key') || '') : '';
+  });
 
   // Resolve API access key
   const envKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
   const dataKey = tommyData.profile?.contactConfig?.web3FormsAccessKey || '';
   const formspreeId = tommyData.profile?.contactConfig?.formspreeId || import.meta.env.VITE_FORMSPREE_ID || '';
   
-  const [activeKey, setActiveKey] = useState(envKey || dataKey || '');
-
-  useEffect(() => {
-    const saved = localStorage.getItem('tommy_web3forms_key');
-    if (saved) {
-      setLocalKey(saved);
-      if (!envKey && !dataKey) setActiveKey(saved);
-    } else {
-      setActiveKey(envKey || dataKey || '');
-    }
-  }, [envKey, dataKey]);
+  const activeKey = localKey || envKey || dataKey || '';
 
   if (!isOpen) return null;
 

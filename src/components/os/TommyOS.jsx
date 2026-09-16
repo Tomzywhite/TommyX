@@ -405,90 +405,90 @@ export default function TommyOS({ onOpenContact }) {
 
       {/* Desktop Shortcuts / Icons (z-[1] so they never render above any window) */}
       <div 
-        className={`relative z-[1] p-4 sm:p-6 ${
+        className={`relative z-[1] p-3 sm:p-6 w-full max-w-full sm:max-w-none sm:w-36 ${
           isMobile && windows.some(w => w.isOpen && !w.isMinimized) ? 'hidden' : 'grid grid-cols-3 sm:flex sm:flex-col'
-        } gap-2.5 sm:gap-6 max-w-sm sm:w-36`}
+        } gap-2 sm:gap-6`}
       >
         <button
           onClick={() => openWindow('about')}
-          className="group flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-center"
+          className="group flex flex-col items-center gap-1.5 p-1.5 sm:p-2 rounded-xl hover:bg-white/10 transition-colors text-center min-w-0 w-full"
         >
           <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,255,136,0.2)]">
             <User className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-emerald-400 tracking-wide truncate max-w-full">
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-emerald-400 tracking-wide truncate max-w-full w-full block">
             About_Me
           </span>
         </button>
 
         <button
           onClick={() => openWindow('projects')}
-          className="group flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-center"
+          className="group flex flex-col items-center gap-1.5 p-1.5 sm:p-2 rounded-xl hover:bg-white/10 transition-colors text-center min-w-0 w-full"
         >
           <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(249,115,22,0.2)]">
             <Folder className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-orange-400 tracking-wide truncate max-w-full">
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-orange-400 tracking-wide truncate max-w-full w-full block">
             Projects
           </span>
         </button>
 
         <button
           onClick={() => openWindow('music')}
-          className="group flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-center"
+          className="group flex flex-col items-center gap-1.5 p-1.5 sm:p-2 rounded-xl hover:bg-white/10 transition-colors text-center min-w-0 w-full"
         >
           <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(124,58,237,0.2)]">
             <Disc3 className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-purple-400 tracking-wide truncate max-w-full">
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-purple-400 tracking-wide truncate max-w-full w-full block">
             Faouzia_Player
           </span>
         </button>
 
         <button
           onClick={() => openWindow('photos')}
-          className="group flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-center"
+          className="group flex flex-col items-center gap-1.5 p-1.5 sm:p-2 rounded-xl hover:bg-white/10 transition-colors text-center min-w-0 w-full"
         >
           <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(236,72,153,0.2)]">
             <Camera className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-pink-400 tracking-wide truncate max-w-full">
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-pink-400 tracking-wide truncate max-w-full w-full block">
             Photo_Vault
           </span>
         </button>
 
         <button
           onClick={() => openWindow('qa_matrix')}
-          className="group flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-center"
+          className="group flex flex-col items-center gap-1.5 p-1.5 sm:p-2 rounded-xl hover:bg-white/10 transition-colors text-center min-w-0 w-full"
         >
           <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(6,182,212,0.2)]">
             <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-cyan-400 tracking-wide truncate max-w-full">
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-cyan-400 tracking-wide truncate max-w-full w-full block">
             QA_Sentinel
           </span>
         </button>
 
         <button
           onClick={() => openWindow('bughunt')}
-          className="group flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-center"
+          className="group flex flex-col items-center gap-1.5 p-1.5 sm:p-2 rounded-xl hover:bg-white/10 transition-colors text-center min-w-0 w-full"
         >
           <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center text-red-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(239,68,68,0.2)]">
             <Bug className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-red-400 tracking-wide truncate max-w-full">
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-red-400 tracking-wide truncate max-w-full w-full block">
             Bug_Assassin
           </span>
         </button>
 
         <button
           onClick={() => openWindow('resume')}
-          className="group flex flex-col items-center gap-1.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-center"
+          className="group flex flex-col items-center gap-1.5 p-1.5 sm:p-2 rounded-xl hover:bg-white/10 transition-colors text-center min-w-0 w-full"
         >
           <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(0,255,136,0.2)]">
             <FileText className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
-          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-emerald-400 tracking-wide truncate max-w-full">
+          <span className="text-[10px] sm:text-[11px] font-mono text-zinc-300 group-hover:text-emerald-400 tracking-wide truncate max-w-full w-full block">
             Resume.pdf
           </span>
         </button>

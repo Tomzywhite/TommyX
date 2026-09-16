@@ -2,22 +2,12 @@ import React, { useState } from 'react';
 import { 
   FileText, 
   Printer, 
-  Download, 
-  ExternalLink, 
-  Mail, 
   MapPin, 
   ShieldCheck, 
   Code2, 
-  CheckCircle2, 
-  Sparkles, 
-  Terminal, 
-  Briefcase, 
-  GraduationCap, 
   Share2, 
-  Award,
-  Layers,
-  Zap,
-  Check
+  Zap, 
+  Check 
 } from 'lucide-react';
 import { sound } from '../../utils/soundSynth';
 import { tommyData } from '../../data/tommyData';

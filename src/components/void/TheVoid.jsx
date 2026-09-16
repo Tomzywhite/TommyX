@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sparkles, Moon, Volume2, VolumeX, Compass, Eye, Maximize2, X, CircleDot } from 'lucide-react';
+import { Sparkles, Moon, Volume2, VolumeX, X, CircleDot } from 'lucide-react';
 import { sound } from '../../utils/soundSynth';
 import { tommyData } from '../../data/tommyData';
 

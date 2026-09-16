@@ -15,9 +15,16 @@ export default function TheTerminal({ onNavigateZone, onOpenContact }) {
   ]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [cmdHistory, setCmdHistory] = useState([]);
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 640 : false);
 
   const terminalEndRef = useRef(null);
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const themeClasses = {
     green: {
@@ -489,7 +496,7 @@ Twitter/X: @Tommy_MetaX | Instagram: @Tommy_MetaX`
               autoFocus
               spellCheck={false}
               className="w-full bg-transparent border-none outline-none text-white font-mono placeholder-zinc-700 text-base sm:text-sm"
-              placeholder="Type command... (Press Tab to autocomplete)"
+              placeholder={isMobile ? "Type command..." : "Type command... (Press Tab to autocomplete)"}
             />
           </div>
         </div>
